@@ -53,7 +53,7 @@ def next_turn(snake, food):
 
     if x == food.coordinates[0] and y == food.coordinates[1]:
         global score
-        winsound.PlaySound("Snake\Sounds\snake_score.wav", winsound.SND_ASYNC)
+        winsound.PlaySound('Sounds\snake_score.wav', winsound.SND_ASYNC)
         score += 1
         label.config(text="Score:{}\nHighscore:{}".format(score, highscore), font=('consolas', 15))
         canvas.delete("food")
@@ -102,13 +102,13 @@ def game_over():
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2.2, font=('consolas',10000), text="|", fill="#990000", tag="gameover")
     if score > highscore:
         canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2.2, font=('consolas',10000), text="|", fill="#228B22", tag="gameover")
-        save_highscore = open("Snake\data\highscore.txt", "w")
+        save_highscore = open('data\highscore.txt', "w")
         save_highscore.write(str(score))
         save_highscore.close
-        winsound.PlaySound("Snake\Sounds\highscore.wav", winsound.SND_ASYNC)
+        winsound.PlaySound('Sounds\highscore.wav', winsound.SND_ASYNC)
         canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/5, font=('consolas',40), text="NEW HIGHSCORE".format(score), fill="yellow", tag="gameover")
     else:
-        winsound.PlaySound("Snake\Sounds\GameOver.wav", winsound.SND_ASYNC)
+        winsound.PlaySound('Sounds\GameOver.wav', winsound.SND_ASYNC)
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2.8, font=('consolas',40), text="Dein Score:{}".format(score), fill="white", tag="gameover")
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2.2, font=('consolas',70), text="GAME OVER", fill="black", tag="gameover")
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/1.8, font=('consolas',40), text="Press SPACE to restart", fill="white", tag="newgame")
@@ -135,7 +135,7 @@ def restart_game(event=None):
     global snake, food, score, direction, highscore, bg, random_bg
     canvas.delete(ALL)  # Clears the canvas
     random_bg = random.randint(1, 3)
-    bg = PhotoImage(file = "Snake\data\pic" + str(random_bg) + ".png")
+    bg = PhotoImage(file = 'data\pic' + str(random_bg) + '.png')
     canvas.pack(fill = "both", expand = True)
     canvas.create_image( 0, 0, image = bg, anchor = "nw")
     canvas.create_text(40, 690, font=('consolas',15), text="v.1.0.6", fill="#474747", tag="Version")
@@ -156,7 +156,7 @@ window.resizable(False, False)
 
 # Scoreboard + Highscore
 score = 0
-load_highscore = open("Snake\data\highscore.txt", "r")
+load_highscore = open('data\highscore.txt', "r")
 highscore = int(load_highscore.read())
 load_highscore.close()
 direction = 's'
@@ -167,7 +167,7 @@ label.pack()
 # Playground
 canvas = Canvas(window, bg=BACKGROUND_COLOR, height=GAME_HEIGHT, width=GAME_WIDTH)
 random_bg = random.randint(1, 3)
-bg = PhotoImage(file = "Snake\data\pic" + str(random_bg) + ".png")
+bg = PhotoImage(file = 'data\pic' + str(random_bg) + '.png')
 canvas.pack(fill = "both", expand = True)
 canvas.create_image( 0, 0, image = bg, anchor = "nw")
 canvas.create_text(40, 690, font=('consolas',15), text="v.1.0.6", fill="#474747", tag="Version")

@@ -1,0 +1,5 @@
+Fixed some Bugs:
+
+# Restart-Error:
+• Game was not able to restart. Reason was the directory was not right. Got fixed.
+• In Directory Paths the " got replaced with ' 
